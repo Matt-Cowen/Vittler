@@ -1,83 +1,182 @@
 [
     {
         "model": "recipe_library.recipe",
-        "pk": 1,
+        "pk": 7,
         "fields": {
-        "title": "Spaghetti Carbonara",
-        "slug": "spaghetti-carbonara",
-        "blurb": "A creamy and indulgent pasta dish with pancetta.",
-        "creator": 1,
-        "featured_image": "https://via.placeholder.com/150",
-        "ingredients": "Spaghetti, pancetta, eggs, Parmesan cheese, black pepper",
-        "method": "Cook spaghetti. Fry pancetta. Mix eggs and cheese. Combine all.",
-        "dietary_choices": [1],
-        "created_on": "2023-09-13T08:47:31.725Z",
-        "status": 1
+            "title": "Beef Stew",
+            "slug": "beef-stew",
+            "blurb": "A hearty and rich beef stew perfect for cold days.",
+            "creator": 1,
+            "featured_image": "https://via.placeholder.com/150",
+            "serves": 4,
+            "prep_time": 60,
+            "ingredients": "Beef, potatoes, carrots, onions, garlic, broth, bay leaves",
+            "method": "Brown beef. Add vegetables and broth. Simmer until tender.",
+            "dietary_choices": [3],
+            "created_on": "2024-11-25T10:00:00.000Z",
+            "status": 1
         }
     },
     {
         "model": "recipe_library.recipe",
-        "pk": 2,
+        "pk": 8,
         "fields": {
-        "title": "Vegan Buddha Bowl",
-        "slug": "vegan-buddha-bowl",
-        "blurb": "A healthy bowl packed with plant-based goodness.",
-        "creator": 2,
-        "featured_image": "https://via.placeholder.com/150",
-        "ingredients": "Quinoa, chickpeas, sweet potato, kale, tahini dressing",
-        "method": "Roast sweet potato. Cook quinoa. Assemble with kale and dressing.",
-        "dietary_choices": [1, 2],
-        "created_on": "2024-09-13T08:47:31.725Z",
-        "status": 1
+            "title": "Chicken Alfredo",
+            "slug": "chicken-alfredo",
+            "blurb": "Creamy Alfredo sauce with tender chicken served over pasta.",
+            "creator": 2,
+            "featured_image": "https://via.placeholder.com/150",
+            "serves": 4,
+            "prep_time": 40,
+            "ingredients": "Chicken breast, pasta, heavy cream, Parmesan, garlic, butter",
+            "method": "Cook chicken. Make Alfredo sauce. Toss with pasta and serve.",
+            "dietary_choices": [5],
+            "created_on": "2024-11-20T11:15:22.000Z",
+            "status": 1
         }
     },
     {
         "model": "recipe_library.recipe",
-        "pk": 3,
+        "pk": 9,
         "fields": {
-        "title": "Gluten-Free Pancakes",
-        "slug": "gluten-free-pancakes",
-        "blurb": "Fluffy and delicious pancakes without the gluten.",
-        "creator": 3,
-        "featured_image": "https://via.placeholder.com/150",
-        "ingredients": "Gluten-free flour, eggs, almond milk, baking powder, maple syrup",
-        "method": "Mix ingredients. Cook on a hot skillet. Serve with syrup.",
-        "dietary_choices": [1, 3],
-        "created_on": "2024-5-13T12:47:31.725Z",
-        "status": 0
+            "title": "BBQ Ribs",
+            "slug": "bbq-ribs",
+            "blurb": "Tender, smoky BBQ ribs perfect for summer grilling.",
+            "creator": 3,
+            "featured_image": "https://via.placeholder.com/150",
+            "serves": 3,
+            "prep_time": 120,
+            "ingredients": "Pork ribs, BBQ sauce, garlic, onion powder, paprika",
+            "method": "Season ribs. Bake or grill with BBQ sauce until tender.",
+            "dietary_choices": [1],
+            "created_on": "2024-11-18T14:22:15.000Z",
+            "status": 1
         }
     },
     {
         "model": "recipe_library.recipe",
-        "pk": 4,
+        "pk": 10,
         "fields": {
-        "title": "Lactose-Free Cheesecake",
-        "slug": "lactose-free-cheesecake",
-        "blurb": "A creamy cheesecake everyone can enjoy.",
-        "creator": 4,
-        "featured_image": "https://via.placeholder.com/150",
-        "ingredients": "Lactose-free cream cheese, sugar, gluten-free biscuits, coconut oil",
-        "method": "Prepare crust. Mix filling. Chill in the fridge.",
-        "dietary_choices": [1, 3, 4],
-        "created_on": "2024-11-13T12:22:31.725Z",
-        "status": 1
+            "title": "Lamb Curry",
+            "slug": "lamb-curry",
+            "blurb": "A rich and spicy lamb curry with bold flavors.",
+            "creator": 4,
+            "featured_image": "https://via.placeholder.com/150",
+            "serves": 4,
+            "prep_time": 90,
+            "ingredients": "Lamb, onions, tomatoes, garlic, ginger, curry powder, coconut milk",
+            "method": "Brown lamb. Sauté onions and spices. Simmer with coconut milk.",
+            "dietary_choices": [3],
+            "created_on": "2024-11-12T16:35:05.000Z",
+            "status": 1
         }
     },
     {
         "model": "recipe_library.recipe",
-        "pk": 5,
+        "pk": 11,
         "fields": {
-        "title": "Nut-Free Granola Bars",
-        "slug": "nut-free-granola-bars",
-        "blurb": "Perfect snack without the worry of nuts.",
-        "creator": 5,
-        "featured_image": "https://via.placeholder.com/150",
-        "ingredients": "Oats, honey, sunflower seeds, chocolate chips",
-        "method": "Mix ingredients. Press into pan. Bake until golden.",
-        "dietary_choices": [1, 5],
-        "created_on": "2023-1-17T12:22:31.725Z",
-        "status": 1
+            "title": "Pork Schnitzel",
+            "slug": "pork-schnitzel",
+            "blurb": "A crispy and golden pork schnitzel, served with a lemon wedge.",
+            "creator": 5,
+            "featured_image": "https://via.placeholder.com/150",
+            "serves": 2,
+            "prep_time": 45,
+            "ingredients": "Pork cutlets, flour, breadcrumbs, egg, lemon, parsley",
+            "method": "Dredge pork in flour, egg, and breadcrumbs. Fry until golden.",
+            "dietary_choices": [4],
+            "created_on": "2024-11-10T09:00:10.000Z",
+            "status": 1
+        }
+    },
+    {
+        "model": "recipe_library.recipe",
+        "pk": 12,
+        "fields": {
+            "title": "Steak Frites",
+            "slug": "steak-frites",
+            "blurb": "A classic French dish with steak and crispy fries.",
+            "creator": 1,
+            "featured_image": "https://via.placeholder.com/150",
+            "serves": 2,
+            "prep_time": 35,
+            "ingredients": "Ribeye steak, potatoes, garlic, butter, thyme",
+            "method": "Cook steak to desired doneness. Serve with crispy fries.",
+            "dietary_choices": [1],
+            "created_on": "2024-11-08T13:25:48.000Z",
+            "status": 1
+        }
+    },
+    {
+        "model": "recipe_library.recipe",
+        "pk": 13,
+        "fields": {
+            "title": "Bacon-Wrapped Chicken",
+            "slug": "bacon-wrapped-chicken",
+            "blurb": "Juicy chicken breasts wrapped in crispy bacon.",
+            "creator": 2,
+            "featured_image": "https://via.placeholder.com/150",
+            "serves": 4,
+            "prep_time": 30,
+            "ingredients": "Chicken breasts, bacon, garlic, rosemary",
+            "method": "Wrap chicken in bacon. Roast until crispy and cooked through.",
+            "dietary_choices": [5],
+            "created_on": "2024-11-05T12:00:00.000Z",
+            "status": 1
+        }
+    },
+    {
+        "model": "recipe_library.recipe",
+        "pk": 14,
+        "fields": {
+            "title": "Beef Tacos",
+            "slug": "beef-tacos",
+            "blurb": "Spicy ground beef in soft tortillas with fresh toppings.",
+            "creator": 3,
+            "featured_image": "https://via.placeholder.com/150",
+            "serves": 3,
+            "prep_time": 20,
+            "ingredients": "Ground beef, tortillas, lettuce, cheese, salsa",
+            "method": "Cook beef with spices. Serve in tortillas with toppings.",
+            "dietary_choices": [1],
+            "created_on": "2024-11-02T08:55:21.000Z",
+            "status": 1
+        }
+    },
+    {
+        "model": "recipe_library.recipe",
+        "pk": 15,
+        "fields": {
+            "title": "Meatball Marinara",
+            "slug": "meatball-marinara",
+            "blurb": "Classic Italian meatballs in marinara sauce served with spaghetti.",
+            "creator": 4,
+            "featured_image": "https://via.placeholder.com/150",
+            "serves": 4,
+            "prep_time": 60,
+            "ingredients": "Ground beef, breadcrumbs, marinara sauce, spaghetti",
+            "method": "Make meatballs. Cook in marinara sauce. Serve with pasta.",
+            "dietary_choices": [3],
+            "created_on": "2024-10-29T10:30:12.000Z",
+            "status": 1
+        }
+    },
+    {
+        "model": "recipe_library.recipe",
+        "pk": 16,
+        "fields": {
+            "title": "Chicken Parmesan",
+            "slug": "chicken-parmesan",
+            "blurb": "Breaded chicken cutlets topped with marinara sauce and melted cheese.",
+            "creator": 5,
+            "featured_image": "https://via.placeholder.com/150",
+            "serves": 4,
+            "prep_time": 50,
+            "ingredients": "Chicken cutlets, breadcrumbs, marinara sauce, mozzarella, Parmesan",
+            "method": "Bread and fry chicken. Top with sauce and cheese. Bake.",
+            "dietary_choices": [1],
+            "created_on": "2024-10-25T14:00:00.000Z",
+            "status": 1
         }
     }
-
 ]

@@ -23,11 +23,11 @@ class Recipe(models.Model):
     User, on_delete=models.CASCADE, related_name="recipes"
     )
     featured_image = CloudinaryField('image', default='placeholder')
+    serves = models.IntegerField(null=True)
+    prep_time = models.IntegerField(null=True)
     ingredients = models.TextField()
     method = models.TextField(blank=True)
-    dietary_choices = MultiSelectField(choices=DIETARY_CHOICES,
-                                 max_choices=5,
-                                 max_length=5)
+    dietary_choices = MultiSelectField(choices=DIETARY_CHOICES)
     created_on = models.DateTimeField(auto_now_add=True, null=True)
     status = models.IntegerField(choices=STATUS, default=0)
 
