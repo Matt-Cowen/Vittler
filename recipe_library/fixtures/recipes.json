@@ -1,0 +1,83 @@
+[
+    {
+        "model": "recipe_library.recipe",
+        "pk": 1,
+        "fields": {
+        "title": "Spaghetti Carbonara",
+        "slug": "spaghetti-carbonara",
+        "blurb": "A creamy and indulgent pasta dish with pancetta.",
+        "creator": 1,
+        "featured_image": "https://via.placeholder.com/150",
+        "ingredients": "Spaghetti, pancetta, eggs, Parmesan cheese, black pepper",
+        "method": "Cook spaghetti. Fry pancetta. Mix eggs and cheese. Combine all.",
+        "dietary_choices": [1],
+        "created_on": "2023-09-13T08:47:31.725Z",
+        "status": 1
+        }
+    },
+    {
+        "model": "recipe_library.recipe",
+        "pk": 2,
+        "fields": {
+        "title": "Vegan Buddha Bowl",
+        "slug": "vegan-buddha-bowl",
+        "blurb": "A healthy bowl packed with plant-based goodness.",
+        "creator": 2,
+        "featured_image": "https://via.placeholder.com/150",
+        "ingredients": "Quinoa, chickpeas, sweet potato, kale, tahini dressing",
+        "method": "Roast sweet potato. Cook quinoa. Assemble with kale and dressing.",
+        "dietary_choices": [1, 2],
+        "created_on": "2024-09-13T08:47:31.725Z",
+        "status": 1
+        }
+    },
+    {
+        "model": "recipe_library.recipe",
+        "pk": 3,
+        "fields": {
+        "title": "Gluten-Free Pancakes",
+        "slug": "gluten-free-pancakes",
+        "blurb": "Fluffy and delicious pancakes without the gluten.",
+        "creator": 3,
+        "featured_image": "https://via.placeholder.com/150",
+        "ingredients": "Gluten-free flour, eggs, almond milk, baking powder, maple syrup",
+        "method": "Mix ingredients. Cook on a hot skillet. Serve with syrup.",
+        "dietary_choices": [1, 3],
+        "created_on": "2024-5-13T12:47:31.725Z",
+        "status": 0
+        }
+    },
+    {
+        "model": "recipe_library.recipe",
+        "pk": 4,
+        "fields": {
+        "title": "Lactose-Free Cheesecake",
+        "slug": "lactose-free-cheesecake",
+        "blurb": "A creamy cheesecake everyone can enjoy.",
+        "creator": 4,
+        "featured_image": "https://via.placeholder.com/150",
+        "ingredients": "Lactose-free cream cheese, sugar, gluten-free biscuits, coconut oil",
+        "method": "Prepare crust. Mix filling. Chill in the fridge.",
+        "dietary_choices": [1, 3, 4],
+        "created_on": "2024-11-13T12:22:31.725Z",
+        "status": 1
+        }
+    },
+    {
+        "model": "recipe_library.recipe",
+        "pk": 5,
+        "fields": {
+        "title": "Nut-Free Granola Bars",
+        "slug": "nut-free-granola-bars",
+        "blurb": "Perfect snack without the worry of nuts.",
+        "creator": 5,
+        "featured_image": "https://via.placeholder.com/150",
+        "ingredients": "Oats, honey, sunflower seeds, chocolate chips",
+        "method": "Mix ingredients. Press into pan. Bake until golden.",
+        "dietary_choices": [1, 5],
+        "created_on": "2023-1-17T12:22:31.725Z",
+        "status": 1
+        }
+    }
+
+]
