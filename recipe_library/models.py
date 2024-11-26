@@ -9,7 +9,7 @@ DIETARY_CHOICES = ((1, 'Vegetarian'),
                (4, 'Lactose Free'),
                (5, 'Nut free'))
 
-STATUS = ((0, "Draft"), (1, "Published"))
+STATUS = ((0, "Under review"), (1, "Published"))
 
 
 # Create your models here.

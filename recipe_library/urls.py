@@ -6,4 +6,6 @@ urlpatterns = [
         views.RecipeList.as_view(), name='library'),
     path ('',
         views.HomeView.as_view(), name='home'),
+    path ('submit_recipe/',
+        views.recipe_submit, name='submit_recipe')
 ]
