@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Recipe
 
+class HomeView(generic.TemplateView):
+    template_name = "recipe_library/index.html"
 
 
 class RecipeList(generic.ListView):
