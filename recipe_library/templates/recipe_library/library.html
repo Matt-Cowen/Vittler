@@ -26,11 +26,11 @@
                                 </div>
                             </div>
 
-                            <h2 class="card-title">{{ recipe.title }}</h2>
-                            <p class="card-text">{{ recipe.blurb }}</p>
-                            <p class="card-text">Serves: {{ recipe.serves }}</p>
-                            <p class="card-text">Prep time: {{ recipe.prep_time }} minutes</p>
-                            <p class="card-text">{{ recipe.dietary_choices}}</p>
+                            <h2 class="card-title" id="{{ recipe.id }}-card-title-id">{{ recipe.title }}</h2>
+                            <p class="card-text" id="{{ recipe.id }}-card-blurb-id">{{ recipe.blurb }}</p>
+                            <p class="card-text" id="{{ recipe.id }}-card-serves-id">Serves: {{ recipe.serves }}</p>
+                            <p class="card-text" id="{{ recipe.id }}-card-prep-id">Prep time: {{ recipe.prep_time }} minutes</p>
+                            <p class="card-text" id="{{ recipe.id }}-card-dietary-id">{{ recipe.dietary_choices}}</p>
 
 
                             <hr />
@@ -40,8 +40,13 @@
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#{{ recipe.slug }}Modal">
-                                Launch demo modal
+                                View full recipe
                             </button>
+
+                            {% if user.is_authenticated and recipe.creator == user %}
+                            <button class="btn btn-delete" recipe_id="{{ recipe.id }}">Delete</button>
+                            <button class="btn btn-edit" recipe_id="{{ recipe.id }}">Edit</button>
+                            {% endif %}
 
                             <!-- Modal -->
                             <div class="modal-dialog modal-dialog-scrollable">
@@ -50,7 +55,7 @@
                                     <div class="modal-dialog modal-xl">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ recipe.title }}
+                                                <h1 class="modal-title fs-5" id="{{ recipe.id }}-title-modal-id">{{ recipe.title }}
                                                 </h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
@@ -60,13 +65,14 @@
                                                     <div class="row">
                                                         <div class="col-6">
                                                             <ul>
-                                                                <li>
+                                                                <li id="{{ recipe.id }}-serves-modal-id">
                                                                     <strong>Serves:</strong> {{ recipe.serves }}
                                                                 </li>
-                                                                <li>
-                                                                    <strong>Prep time:</strong> {{ recipe.prep_time }} minutes
+                                                                <li id="{{ recipe.id }}-prep-modal-id">
+                                                                    <strong>Prep time:</strong> {{ recipe.prep_time }}
+                                                                    minutes
                                                                 </li>
-                                                                <li>
+                                                                <li id="{{ recipe.id }}-choices-modal-id">
                                                                     {{ recipe.dietary_choices}}
                                                                 </li>
                                                             </ul>
@@ -74,35 +80,39 @@
                                                         <div class="col-6">
                                                             <div class="image-container">
                                                                 {% if "placeholder" in recipe.featured_image.url %}
-                                                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                                                                <img class="card-img-top"
+                                                                    src="{% static 'images/default.jpg' %}"
                                                                     alt="placeholder image">
                                                                 {% else %}
-                                                                <img class="card-img-top" src=" {{ recipe.featured_image.url }}"
+                                                                <img class="card-img-top"
+                                                                    src=" {{ recipe.featured_image.url }}"
                                                                     alt="{{ recipe.title }}">
                                                                 {% endif %}
                                                                 <div class="image-flash">
-                                
+
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{ recipe.method }}
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <p>cake</p>
+                                                    <div class="container" id="{{ recipe.id }}-method-modal-id">
+                                                        {{ recipe.method }}
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <p>cake</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -18,7 +18,7 @@ class RecipeList(generic.ListView):
     paginate_by = 1000
 
 
-def recipe_submit(request):
+def submit_recipe(request):
     """
     Display an individual comment for edit.
 
@@ -46,6 +46,10 @@ def recipe_submit(request):
                 request, messages.SUCCESS,
                 'Recipe submitted for approval!'
             )
+            return redirect('library')  # Redirect after success
+        else:
+            messages.add_message(request, messages.ERROR,
+                                 'Error submitting recipe!')
     
     recipe_form = RecipeForm()
 
@@ -56,3 +60,25 @@ def recipe_submit(request):
             'recipe_form': recipe_form
         },
 )
+
+
+def recipe_edit(request, recipe_id):
+    """
+    view to edit comments
+    """
+    recipe = get_object_or_404(Recipe, id=recipe_id)
+
+    recipe_form = RecipeForm(data=request.POST, instance=recipe)
+
+    if request.method == "POST":
+
+
+        if recipe_form.is_valid() and recipe.creator == request.user:
+            recipe.save()
+            messages.add_message(request, messages.SUCCESS, 'Recipe edited!')
+        else:
+            messages.add_message(request, messages.ERROR,
+                                 'Error updating recipe!')
+    
+
+    return render(request, "recipe_library/edit_recipe.html", {'recipe_form': recipe_form, 'recipe': recipe})
