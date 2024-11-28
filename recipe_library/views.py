@@ -17,21 +17,15 @@ class RecipeList(generic.ListView):
     template_name = "recipe_library/library.html"
     paginate_by = 1000
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['recipe_list'] = [
+            (recipe, RecipeForm(instance=recipe)) for recipe in context['object_list']
+        ]
+        return context
+
 
 def submit_recipe(request):
-    """
-    Display an individual comment for edit.
-
-    **Context**
-
-    ``post``
-        An instance of :model:`blog.Post`.
-    ``comment``
-        A single comment related to the post.
-    ``comment_form``
-        An instance of :form:`blog.CommentForm`
-    """
-    queryset = Recipe.objects.all()
 
     if request.method == "POST":
         recipe_form = RecipeForm(data=request.POST)
@@ -46,39 +40,50 @@ def submit_recipe(request):
                 request, messages.SUCCESS,
                 'Recipe submitted for approval!'
             )
-            return redirect('library')  # Redirect after success
+            return redirect('submit_recipe')  # Redirect after success
         else:
             messages.add_message(request, messages.ERROR,
                                  'Error submitting recipe!')
-    
-    recipe_form = RecipeForm()
+    else:
+        recipe_form = RecipeForm()
 
     return render(
         request,
-        "recipe_library/submit_recipe.html",
+        'recipe_library/submit_recipe.html',
         {
             'recipe_form': recipe_form
         },
 )
 
 
-def recipe_edit(request, recipe_id):
-    """
-    view to edit comments
-    """
-    recipe = get_object_or_404(Recipe, id=recipe_id)
 
-    recipe_form = RecipeForm(data=request.POST, instance=recipe)
+def recipe_edit(request, recipe_id):
+
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
 
     if request.method == "POST":
-
-
+        recipe_form = RecipeForm(data=request.POST, instance=recipe)
         if recipe_form.is_valid() and recipe.creator == request.user:
             recipe.save()
             messages.add_message(request, messages.SUCCESS, 'Recipe edited!')
+            return redirect('library')
         else:
             messages.add_message(request, messages.ERROR,
                                  'Error updating recipe!')
-    
+    else:
+        recipe_form = RecipeForm(instance=recipe)
 
-    return render(request, "recipe_library/edit_recipe.html", {'recipe_form': recipe_form, 'recipe': recipe})
+    return render(
+        request,
+        "recipe_library/library.html",
+        {
+            'recipe_form': recipe_form,
+            'recipe': recipe
+        },
+        )
+
+
+
+
+
+    

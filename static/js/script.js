@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-            const recipeForm = document.getElementById("recipeForm");
+
             const submitButton = document.getElementById("submitButton");
             const editButtons = document.getElementsByClassName("btn-edit");
             const titleText = document.getElementById("id_title");
@@ -23,16 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
             for (let button of editButtons) {
                 button.addEventListener("click", (e) => {
+                    
+                    
                     let recipeId = e.target.getAttribute("recipe_id");
+                    let editModal = document.getElementById(`${recipeId}-modal-edit`);
                     let recipeTitle = document.getElementById(`${recipeId}-card-title-id`).innerText;
+                    let recipeForm = document.getElementById(`${recipeId}-modal-edit-form`);
 
-                    window.location.href = `/edit_recipe/${recipeId}`
+                    //Toggle modal view
+                    editModal.classList.toggle("d-none")
 
+                    console.log(recipeTitle);
+                    console.log(recipeId); 
 
-                    console.log(recipeTitle);                    
-                    titleText.value = recipeTitle;
-                    submitButton.innerText = "Update";
-                    recipeForm.setAttribute("action", `edit_recipe/${recipeId}`);
+                    recipeForm.setAttribute("action", `edit_recipe/${recipeId}/`);
                 });
             };
 

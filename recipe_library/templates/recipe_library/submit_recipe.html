@@ -1,17 +1,10 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit Recipe</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
-</head>
-<body>
+{% block form %}
+
+
     <div class="container mt-5">
         <h1>Submit a Recipe</h1>
         <form method="post">
@@ -20,7 +13,6 @@
             <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
     </div>
-</body>
-</html>
 
-{% endblock content %}
+
+{% endblock form %}
