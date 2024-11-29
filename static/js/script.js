@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const submitButton = document.getElementById("submitButton");
             const editButtons = document.getElementsByClassName("btn-edit");
             const titleText = document.getElementById("id_title");
+            const deleteButtons = document.getElementsByClassName("btn-delete");
 
             /*
              * Initializes edit functionality for the provided edit buttons.
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 button.addEventListener("click", (e) => {
                     
                     
-                    let recipeId = e.target.getAttribute("recipe_id");
+                    let recipeId = e.target.getAttribute("data-recipe_id");
                     let editModal = document.getElementById(`${recipeId}-modal-edit`);
                     let recipeTitle = document.getElementById(`${recipeId}-card-title-id`).innerText;
                     let recipeForm = document.getElementById(`${recipeId}-modal-edit-form`);
@@ -39,5 +40,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     recipeForm.setAttribute("action", `edit_recipe/${recipeId}/`);
                 });
             };
+            
+            // for (let button of deleteButtons) {
+            //     button.addEventListener("click", (e) => {
+            //         let recipeId = e.target.getAttribute("data-recipe_id");
+            //         deleteButtons.href = `library/recipe_delete/${recipeId}`
+            //     })
+            // }
+
+            for (let button of deleteButtons) {
+                button.addEventListener("click", (e) => {
+                    e.preventDefault(); // Prevent default link action
+                    let deleteUrl = e.target.getAttribute("data-url")
+                    if (confirm("Are you sure you want to delete this recipe?")) {
+                        // Redirect to delete URL
+                        window.location.href = deleteUrl;
+                    }
+                });
+            }
 
         });

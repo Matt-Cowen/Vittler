@@ -115,8 +115,8 @@
                                                     data-bs-dismiss="modal">Close</button>
                                                 {% if user.is_authenticated and recipe.creator == user %}
                                                 <button class="btn btn-delete"
-                                                    recipe_id="{{ recipe.id }}">Delete</button>
-                                                <button class="btn btn-edit" recipe_id="{{ recipe.id }}">Edit</button>
+                                                    data-recipe_id="{{ recipe.id }}" data-url="{% url 'recipe_delete' recipe.id %}">Delete</button>
+                                                <button class="btn btn-edit" data-recipe_id="{{ recipe.id }}">Edit</button>
                                                 {% endif %}
                                             </div>
                                         </div>

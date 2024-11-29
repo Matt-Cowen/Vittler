@@ -9,5 +9,7 @@ urlpatterns = [
     path ('submit_recipe/',
         views.submit_recipe, name='submit_recipe'),
     path('library/edit_recipe/<int:recipe_id>/',
-         views.recipe_edit, name='recipe_edit'),      
+         views.recipe_edit, name='recipe_edit'), 
+    path('library/delete_recipe/<int:recipe_id>/',
+         views.recipe_delete, name='recipe_delete'),    
 ]

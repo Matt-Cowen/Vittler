@@ -83,6 +83,19 @@ def recipe_edit(request, recipe_id):
         )
 
 
+def recipe_delete(request, recipe_id):
+    
+    print("Well done")
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    
+    if recipe.creator == request.user:
+        recipe.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(request, messages.ERROR,
+                             'You can only delete your own comments!')
+
+    return redirect('library')
 
 
 
