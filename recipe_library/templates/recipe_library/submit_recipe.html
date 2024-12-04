@@ -7,7 +7,7 @@
 
     <div class="container mt-5">
         <h1>Submit a Recipe</h1>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ recipe_form|crispy }}
             <button type="submit" class="btn btn-primary mt-3">Submit</button>

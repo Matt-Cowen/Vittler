@@ -52,7 +52,7 @@
                                 <div class="modal fade" id="{{ recipe.slug }}Modal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-xl">
-                                        <div class="modal-content" id="{{ recipe.id }}-modal-content">
+                                        <div class="modal-content">
                                             <div class="modal-header">
                                                 <h1 class="modal-title fs-5" id="{{ recipe.id }}-title-modal-id">
                                                     {{ recipe.title }}
@@ -61,7 +61,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="container-fluid">
+                                                <div class="container-fluid" id="{{ recipe.id }}-modal-content">
                                                     <div class="row">
                                                         <div class="col-6">
                                                             <ul>
@@ -95,21 +95,20 @@
                                                         </div>
                                                     </div>
                                                     <div class="container" id="{{ recipe.id }}-method-modal-id">
-                                                        {{ recipe.method }}
-
-                                                        <p>cake</p>
+                                                        {{ recipe.method | safe }}
                                                     </div>
                                                 </div>
+                                                <div class="container d-none" id="{{ recipe.id }}-modal-edit">
+                                                    <form id="{{ recipe.id }}-modal-edit-form" method="post"
+                                                        action="{% url 'recipe_edit' recipe.id %}">
+                                                        {% csrf_token %}
+                                                        {{ form|crispy }}
+                                                        <button id="submitButton" type="submit"
+                                                            class="btn btn-signup btn-lg">Submit</button>
+                                                    </form>
+                                                </div>
                                             </div>
-                                            <div class="d-none" id="{{ recipe.id }}-modal-edit">
-                                                <form id="{{ recipe.id }}-modal-edit-form" method="post"
-                                                    action="{% url 'recipe_edit' recipe.id %}">
-                                                    {% csrf_token %}
-                                                    {{ form|crispy }}
-                                                    <button id="submitButton" type="submit"
-                                                        class="btn btn-signup btn-lg">Submit</button>
-                                                </form>
-                                            </div>
+
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
@@ -128,14 +127,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                                 <div class="modal-body">
-                                                    <div class="container">
-                                                        <form id="{{ recipe.id }}-modal-edit-form" method="post" action="{% url 'recipe_edit' recipe.id %}">
-                                                            {% csrf_token %}
-                                                            {{ recipe_form | crispy }}
-                                                            <button id="submitButton" type="submit"
-                                                                class="btn btn-signup btn-lg">Submit</button>
-                                                        </form>
-                                                    </div>
+
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"

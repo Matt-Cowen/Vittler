@@ -28,7 +28,7 @@ class RecipeList(generic.ListView):
 def submit_recipe(request):
 
     if request.method == "POST":
-        recipe_form = RecipeForm(data=request.POST)
+        recipe_form = RecipeForm(request.POST, request.FILES)
         if recipe_form.is_valid():
             recipe = recipe_form.save(commit=False)
             recipe.creator = request.user

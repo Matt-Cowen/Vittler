@@ -26,8 +26,8 @@ class Recipe(models.Model):
     serves = models.IntegerField(null=True)
     prep_time = models.IntegerField(null=True)
     ingredients = models.TextField()
-    method = models.TextField(blank=True)
-    dietary_choices = MultiSelectField(choices=DIETARY_CHOICES)
+    method = models.TextField()
+    dietary_choices = MultiSelectField(choices=DIETARY_CHOICES, null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True, null=True)
     status = models.IntegerField(choices=STATUS, default=0)
 
