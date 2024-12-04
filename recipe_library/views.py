@@ -29,6 +29,7 @@ def submit_recipe(request):
 
     if request.method == "POST":
         recipe_form = RecipeForm(request.POST, request.FILES)
+        recipe_form.fields['prep_time'].label = "Preparation Time (mins)"
         if recipe_form.is_valid():
             recipe = recipe_form.save(commit=False)
             recipe.creator = request.user
@@ -36,11 +37,8 @@ def submit_recipe(request):
             recipe.created_on = timezone.now()
             recipe.status = 1
             recipe.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Recipe submitted for approval!'
-            )
-            return redirect('submit_recipe')  # Redirect after success
+            messages.add_message(request, messages.SUCCESS, 'Recipe added!')
+            return redirect('library')  # Redirect after success
         else:
             messages.add_message(request, messages.ERROR,
                                  'Error submitting recipe!')
@@ -62,10 +60,11 @@ def recipe_edit(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
 
     if request.method == "POST":
-        recipe_form = RecipeForm(data=request.POST, instance=recipe)
+        recipe_form = RecipeForm(request.POST, request.FILES, instance=recipe)
+        recipe_form.fields['prep_time'].label = "Preparation Time (mins)"
         if recipe_form.is_valid() and recipe.creator == request.user:
             recipe.save()
-            messages.add_message(request, messages.SUCCESS, 'Recipe edited!')
+            messages.success(request, 'Recipe edited!')
             return redirect('library')
         else:
             messages.add_message(request, messages.ERROR,
