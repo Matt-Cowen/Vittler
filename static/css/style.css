@@ -17,10 +17,15 @@ body {
     z-index: 1;
 }
 
+.message-display {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+  }
+
 /**--------------------------------------------Navbar------**/
 
 .navbar{
-    background-color: #56a034;
+    background-color: #6fa058;
     border-bottom: 2px solid #6a9171;
 }
 
@@ -56,23 +61,34 @@ body {
 
 .hero-text {
     position: relative;
-    z-index: 1; 
+    z-index: 1;
+    margin-top: 18rem;
 }
 
 
 /*--------------------------------------------Recipe Cards------*/
 
+
 .btn {
     font-size: 14px;
     border-radius: 5px;
     margin: 0 5px;
-    white-space: nowrap; /* Prevent the text from wrapping */
-    max-width: 100%; /* Ensure the button width doesn't exceed its container */
-    flex-shrink: 0; /* Prevent button from shrinking */
+    white-space: nowrap;
+    max-width: 100%; 
+    flex-shrink: 0;
 }
 
 .button-container {
     display: flex;
-    justify-content: center; /* Center the buttons horizontally */
-    flex-wrap: nowrap; /* Prevent buttons from wrapping to the next line */
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+
+/*--------------------------------------------Submit Form------*/
+
+.form-container{
+    background-color: #6fa0588e;
+    border-radius: 10px;
+    padding: 15px;
 }

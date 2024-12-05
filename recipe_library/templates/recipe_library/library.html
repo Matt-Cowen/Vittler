@@ -12,7 +12,7 @@
         <input type="text" name="search" class="form-control" placeholder="Search for recipes..." 
                value="{{ search_query }}">
         <button type="submit" class="btn btn-primary ms-2">Search</button>
-        <button class="btn btn-primary" onclick="clearSearch()">Clear Search</button>
+        <button class="btn btn-primary" data-url="{% url 'library' %}" onclick="clearSearch()">Clear Search</button>
     </form>
 </div>
 
@@ -33,15 +33,12 @@
                                 <img class="card-img-top" src=" {{ recipe.featured_image.url }}"
                                     alt="{{ recipe.title }}">
                                 {% endif %}
-                                <div class="image-flash">
-
-                                </div>
                             </div>
-
-                            <h2 class="card-title" id="{{ recipe.id }}-card-title-id">{{ recipe.title }}</h2>
+                            <div class="card-text-container">
+                            <h3 class="card-title my-3 text-center" id="{{ recipe.id }}-card-title-id">{{ recipe.title }}</h2>
                             <p class="card-text" id="{{ recipe.id }}-card-blurb-id">{{ recipe.blurb }}</p>
-                            <p class="card-text" id="{{ recipe.id }}-card-serves-id">Serves: {{ recipe.serves }}</p>
-                            <p class="card-text" id="{{ recipe.id }}-card-prep-id">Prep time: {{ recipe.prep_time }}
+                            <p class="card-text" id="{{ recipe.id }}-card-serves-id"><strong>Serves:</strong> {{ recipe.serves }}</p>
+                            <p class="card-text" id="{{ recipe.id }}-card-prep-id"><strong>Prep time:</strong> {{ recipe.prep_time }}
                                 minutes</p>
                             <p class="card-text" id="{{ recipe.id }}-card-dietary-id">{{ recipe.dietary_choices}}</p>
 
@@ -50,6 +47,7 @@
 
                             <p class="card-text text-muted h6">Created by: {{ recipe.creator }}</p>
                             </p>
+                        </div>
                             <!-- Button container modal and add -->
                             <div class="button-container">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -84,7 +82,13 @@
                                                         <div class="col-4" id="{{ recipe.id }}-ingredients-modal-id">
                                                             <h3><strong>Ingredients</strong></h3>
                                                             <hr>
-                                                            {{ recipe.ingredients | safe }}
+                                                            <ul>
+                                                                {% for ingredient in recipe.ingredients.splitlines %}
+                                                                    {% if ingredient.strip %}
+                                                                    <li>{{ ingredient }}</li>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                            </ul>
                                                         </div>
 
                                                         <div class="col-4">
@@ -139,6 +143,10 @@
                                             </div>
 
                                             <div class="modal-footer">
+                                                <a data-recipe_id="{{ recipe.id }}"
+                                                href="{% url 'add_to_my_recipes' recipe.id %}"><button class="btn btn-info">Add to
+                                                    My
+                                                    Recipes</button></a>
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
                                                 {% if user.is_authenticated and recipe.creator == user %}
