@@ -1,11 +1,47 @@
-h1 {
-    color: navy;
+/**--------------------------------------------General------**/
+
+body {
+    background-color: #fafae9;
 }
 
-.find-out {
-    color: darkgreen;
+
+/**--------------------------------------------Modifiers------**/
+
+.opaque-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(250, 250, 233, 0.192);
+    z-index: 1;
 }
 
+/**--------------------------------------------Navbar------**/
+
+.navbar{
+    background-color: #56a034;
+    border-bottom: 2px solid #6a9171;
+}
+
+.navbar-nav {
+    margin-left: 15px;
+}
+
+.navbar-brand{
+    background-image: url(../images/default.jpg);
+    background-size: contain;
+    height: 3.5rem;
+    width: 3.5rem;
+    margin-left: 15px;
+    border-radius: 50%;
+}
+
+.navbar-toggler {
+    margin-right: 20px;
+}
+
+/**--------------------------------------------Homepage------**/
 
 #hero {
     height: 85vh;
@@ -16,3 +52,11 @@ h1 {
     margin-bottom: 0px;
     border-radius: 0;
 }
+
+.hero-text {
+    position: relative;
+    z-index: 1; 
+}
+
+
+/**--------------------------------------------Recipe Cards------**/
