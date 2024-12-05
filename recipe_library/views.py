@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.utils import timezone
 from django.utils.text import slugify
+from django.db.models import Q 
 from .models import Recipe, MyRecipes
 from .forms import RecipeForm
 
@@ -24,6 +25,20 @@ class RecipeList(generic.ListView):
             (recipe, RecipeForm(instance=recipe)) for recipe in context['object_list']
         ]
         return context
+
+    def get_queryset(self):
+        queryset = Recipe.objects.filter(status=1)  # Start with active recipes only
+
+        # Handle search functionality
+        search_query = self.request.GET.get('search', '')  # Retrieve search term from GET parameters
+        if search_query:
+            queryset = queryset.filter(
+                Q(title__icontains=search_query) |  # Filter by title
+                Q(blurb__icontains=search_query) |  # Or filter by blurb
+                Q(ingredients__icontains=search_query)  # Or filter by ingredients
+            )
+
+        return queryset
 
 class MyRecipeList(generic.ListView):
     queryset = MyRecipes.objects.all()

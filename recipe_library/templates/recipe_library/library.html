@@ -5,6 +5,16 @@
 
 {% block content %}
 
+
+
+<div class="container mb-4">
+    <form method="get" action="{% url 'library' %}" class="d-flex justify-content-center">
+        <input type="text" name="search" class="form-control" placeholder="Search for recipes..." 
+               value="{{ search_query }}">
+        <button type="submit" class="btn btn-primary ms-2">Search</button>
+    </form>
+</div>
+
 <div class="container">
     <div class="row">
         <!-- Recipe Grid -->
@@ -39,13 +49,18 @@
 
                             <p class="card-text text-muted h6">Created by: {{ recipe.creator }}</p>
                             </p>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#{{ recipe.slug }}Modal">
-                                View full recipe
-                            </button>
-                            <a data-recipe_id="{{ recipe.id }}"
-                            href="{% url 'add_to_my_recipes' recipe.id %}">Add to My Recipes</a>
+                            <!-- Button container modal and add -->
+                            <div class="button-container">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#{{ recipe.slug }}Modal">
+                                    View full recipe
+                                </button>
+                                <a data-recipe_id="{{ recipe.id }}"
+                                    href="{% url 'add_to_my_recipes' recipe.id %}"><button class="btn btn-info">Add to
+                                        My
+                                        Recipes</button></a>
+
+                            </div>
 
 
 
@@ -70,7 +85,7 @@
                                                             <hr>
                                                             {{ recipe.ingredients | safe }}
                                                         </div>
-                                                        
+
                                                         <div class="col-4">
                                                             <div class="image-container">
                                                                 {% if "placeholder" in recipe.featured_image.url %}
@@ -133,23 +148,6 @@
                                                 {% endif %}
                                             </div>
                                         </div>
-                                        <!-- <div class="modal-content d-none" id="{{ recipe.id }}-modal-edit">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="{{ recipe.id }}-title-edit-modal-id">
-                                                    {{ recipe.title }}
-                                                </h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                                <div class="modal-body">
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                        <button class="btn btn-delete" recipe_id="{{ recipe.id }}">Delete</button>
-                                                </div>
-                                            </div>
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>

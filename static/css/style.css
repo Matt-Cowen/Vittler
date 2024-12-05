@@ -1,4 +1,4 @@
-/**--------------------------------------------General------**/
+/* *--------------------------------------------General------**/
 
 body {
     background-color: #fafae9;
@@ -35,6 +35,7 @@ body {
     width: 3.5rem;
     margin-left: 15px;
     border-radius: 50%;
+    border: 2px solid #425a46; 
 }
 
 .navbar-toggler {
@@ -59,4 +60,19 @@ body {
 }
 
 
-/**--------------------------------------------Recipe Cards------**/
+/*--------------------------------------------Recipe Cards------*/
+
+.btn {
+    font-size: 14px;
+    border-radius: 5px;
+    margin: 0 5px;
+    white-space: nowrap; /* Prevent the text from wrapping */
+    max-width: 100%; /* Ensure the button width doesn't exceed its container */
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    flex-wrap: nowrap; /* Prevent buttons from wrapping to the next line */
+}
