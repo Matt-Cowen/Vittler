@@ -28,7 +28,7 @@ for (let button of editButtons) {
         editModal.classList.toggle("d-none")
         recipeModal.classList.toggle("d-none")
 
-
+        //Set submit action
         recipeForm.setAttribute("action", `edit_recipe/${recipeId}/`);
     });
 };
@@ -45,3 +45,8 @@ for (let button of deleteButtons) {
     });
 }
 
+
+function clearSearch() {
+  let libraryUrl = e.target.getAttribute("data-url")
+  window.location.href = libraryUrl;
+}
