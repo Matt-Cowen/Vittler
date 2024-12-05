@@ -41,10 +41,16 @@ def add_to_my_recipes(request, recipe_id):
     if recipe in my_recipes.recipe.all():
         messages.info(request, "This recipe is already in your list!")
     else:
-        # Add the recipe to the user's MyRecipes
         my_recipes.recipe.add(recipe)
-        messages.success(request, "Recipe added to your list successfully!")
+        messages.success(request, "Recipe added to your list")
     return redirect('library')
+
+def remove_from_my_recipes(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    my_recipes = MyRecipes.objects.get(user=request.user)
+    my_recipes.recipe.remove(recipe)
+    messages.success(request, "Recipe removed from your list")
+    return redirect('my_recipes')
 
 
 def submit_recipe(request):

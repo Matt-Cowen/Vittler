@@ -44,6 +44,8 @@
                                 data-bs-target="#{{ recipe.slug }}Modal">
                                 View full recipe
                             </button>
+                            <a data-recipe_id="{{ recipe.id }}"
+                            href="{% url 'remove_from_my_recipes' recipe.id %}">Remove from My Recipes</a>
 
 
 
@@ -66,7 +68,13 @@
                                                         <div class="col-4" id="{{ recipe.id }}-ingredients-modal-id">
                                                             <h3><strong>Ingredients</strong></h3>
                                                             <hr>
-                                                            {{ recipe.ingredients | safe }}
+                                                            <ul>
+                                                                {% for ingredient in recipe.ingredients.splitlines %}
+                                                                    {% if ingredient.strip %}
+                                                                    <li>{{ ingredient }}</li>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                            </ul>
                                                         </div>
                                                         
                                                         <div class="col-4">
