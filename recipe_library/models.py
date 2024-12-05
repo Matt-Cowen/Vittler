@@ -36,3 +36,11 @@ class Recipe(models.Model):
     
     def __str__(self):
         return f"{self.title} | from {self.creator}"
+
+
+class MyRecipes(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="myrecipes"
+    )
+    recipe = models.ManyToManyField(Recipe)
+    context_object_name = "my_recipes_list"

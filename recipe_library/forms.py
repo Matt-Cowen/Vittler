@@ -12,9 +12,4 @@ class RecipeForm(forms.ModelForm):
         """
         model = Recipe
         fields = ('title', 'featured_image', 'blurb', 'serves', 'prep_time', 'ingredients', 'method', 'dietary_choices',)
-
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            # Dynamically set labels
-            self.fields['prep_time'].label = "Preparation Time (mins)"
-            
+    prep_time = forms.IntegerField(label="Preparation Time (minutes)")

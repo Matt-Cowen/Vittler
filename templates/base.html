@@ -70,11 +70,11 @@
     </nav>
 
     {% if messages %}
-    <ul class="messages">
+    <div id="message-display">
         {% for message in messages %}
-        <li class="{{ message.tags }}">{{ message }}</li>
+        <p class="alert alert-{{ message.tags }} m-0">{{ message }}</p>
         {% endfor %}
-    </ul>
+    </div>
     {% endif %}
 
     {% block content %}
