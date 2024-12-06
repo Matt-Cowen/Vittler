@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const messages = document.getElementById("message-display");
     if (messages) {
       setTimeout(() => {
-        messages.style.display = "none"; // Hide the messages
-      }, 5000); // 5000 milliseconds = 5 seconds
+        messages.style.display = "none";
+      }, 5000); 
     }
   });
 
@@ -23,10 +23,19 @@ for (let button of editButtons) {
         let recipeModal = document.getElementById(`${recipeId}-modal-content`);
         let editModal = document.getElementById(`${recipeId}-modal-edit`);
         let recipeForm = document.getElementById(`${recipeId}-modal-edit-form`);
+        let recipeEditButton = document.getElementById(`${recipeId}-edit-button`);
+        let recipeAddButton = document.getElementById(`${recipeId}-add-button`);
 
         //Toggle modal view
-        editModal.classList.toggle("d-none")
-        recipeModal.classList.toggle("d-none")
+        editModal.classList.toggle("d-none");
+        recipeModal.classList.toggle("d-none");
+        recipeAddButton.classList.toggle("d-none");
+
+        if (recipeEditButton.innerText.includes("Cancel")) {
+          recipeEditButton.innerText = "Edit";
+        } else {
+          recipeEditButton.innerText = "Cancel Edit";
+        }
 
         //Set submit action
         recipeForm.setAttribute("action", `edit_recipe/${recipeId}/`);

@@ -27,15 +27,14 @@ class RecipeList(generic.ListView):
         return context
 
     def get_queryset(self):
-        queryset = Recipe.objects.filter(status=1)  # Start with active recipes only
+        queryset = Recipe.objects.filter(status=1)  
 
-        # Handle search functionality
-        search_query = self.request.GET.get('search', '')  # Retrieve search term from GET parameters
+        search_query = self.request.GET.get('search', '') 
         if search_query:
             queryset = queryset.filter(
-                Q(title__icontains=search_query) |  # Filter by title
-                Q(blurb__icontains=search_query) |  # Or filter by blurb
-                Q(ingredients__icontains=search_query)  # Or filter by ingredients
+                Q(title__icontains=search_query) |  
+                Q(blurb__icontains=search_query) | 
+                Q(ingredients__icontains=search_query)
             )
 
         return queryset
