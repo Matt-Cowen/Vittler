@@ -5,14 +5,16 @@
 {% block form %}
 
 
-<div class="container mt-5">
+<div class="container my-5">
     <div class="form-container">
         <h1>Submit a Recipe</h1>
         <hr>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ recipe_form|crispy }}
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-info mt-3">Submit</button>
+        </div>
         </form>
     </div>
 </div>

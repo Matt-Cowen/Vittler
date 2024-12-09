@@ -12,7 +12,7 @@
                     {% if user.is_authenticated %}
 
                     {% else %}
-                    <a href="{% url 'account_login' %}"><button class="btn btn-info">Sign up</button></a> or 
+                    <a href="{% url 'account_login' %}"><button class="btn btn-info">Sign up</button></a> or
                     {% endif %}
                     <a href="{% url 'library' %}"><button class="btn btn-primary">Start searching our
                             recipe library!</button></a>
@@ -21,21 +21,32 @@
         </div>
     </div>
 </div>
+<div class="container-fluid p-0">
+    <div class="page-separator px-5 py-1">
+        <h2>Welcome to VITTLER</h2>
+    </div>
+</div>
 <div class="container">
-    <div class="row">
-        <div class="col-12 col-lg-6">
+    <div class="row py-5">
+        <div class="col-12 col-lg-6 order-2 order-lg-1 d-flex justify-content-center align-items-center ">
+            <div class="brand-blurb">
 
+            <h4> Discover a world of flavor at your fingertips. With VITTLER, you can:</h4>
+                <br>
+                <br>
+                <ul class="fa-ul">
+                    <li><span class="fa-li"><i class="fa-solid fa-clipboard"></i></span>Upload Your Recipes: Share your favorite dishes and inspire others.</li>
+                    <li><span class="fa-li"><i class="fa-solid fa-magnifying-glass"></i></span>Explore the Library: Browse a growing collection of recipes from food lovers everywhere.</li>
+                    <li><span class="fa-li"><i class="fa-solid fa-book"></i></span>Save Your Favorites: Build your own personal recipe book with just a click.</li>
+                </ul>
+                <br>
+                <br>
+                <p>Simple, collaborative, and delicious—start your culinary journey with VITTLER today!</p>
+            </div>
         </div>
-        <h2>Welcome to Vittler!</h2>
-        Discover a world of flavor at your fingertips. With RecipeShare, you can:
-        <ul>
-            <li>Upload Your Recipes: Share your favorite dishes and inspire others.</li>
-            <li>Explore the Library: Browse a growing collection of recipes from food lovers everywhere.</li>
-            <li>Save Your Favorites: Build your own personal recipe book with just a click.</li>
-        </ul>
-        <p>Simple, collaborative, and delicious—start your culinary journey with RecipeShare today!</p>
-        <div class="col-12 col-lg-6">
 
+        <div class="col-12 col-lg-6 order-1 order-lg-2">
+            <img src="../static/images/default.jpg" class="img-fluid  brand-image" alt="Responsive image">
         </div>
     </div>
 </div>

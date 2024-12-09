@@ -9,6 +9,11 @@ body {
 }
 
 
+.page-separator {
+    background-color: #87a878;
+    color: #fafae9; 
+}
+
 
 
 /**--------------------------------------------Modifiers------**/
@@ -84,8 +89,6 @@ body {
 }
 
 
-
-
 /**--------------------------------------------Navbar------**/
 
 .navbar{
@@ -120,8 +123,28 @@ body {
 /*--------------------------------------------Footer------*/
 
 footer {
-    border-top: 2px solid #424242 !important;
+    border: none;
+    background-color: #be6e46 !important;
+    color: #fafae9;
 }
+
+.footer-links {
+    list-style-type: none;
+    display: flex;
+    margin-bottom: 0 !important;
+}
+
+.footer-links > li {
+    font-size: 1.2rem;
+    margin: 0 10px;
+}
+
+.social-link {
+ 
+    text-decoration: none;
+    color: #fafae9;
+}
+
 
 /**--------------------------------------------Homepage------**/
 
@@ -144,6 +167,24 @@ footer {
     font-family: "Roboto", sans-serif;
 }
 
+.brand-image {
+    padding: 50px;
+    border-radius: 50%;
+}
+
+.brand-blurb {
+    margin: auto;
+    font-size: 1.2rem;
+
+}
+
+.brand-blurb > ul {
+    list-style-type: none;
+}
+
+.fa-ul > li {
+    margin-bottom: 5px; 
+}
 /*--------------------------------------------Recipe Cards------*/
 
 .recipe-card {
@@ -202,4 +243,18 @@ footer {
     border-left: 2px solid #424242;
     margin-bottom: 0px;
     border-radius: 0;
+}
+
+
+
+
+@media screen and (min-width:1200px) {
+
+    
+    .footer-links > li {
+        margin: 0 20px;
+        font-size: 2rem;
+    }
+
+
 }
