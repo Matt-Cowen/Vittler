@@ -4,16 +4,38 @@
 
 <div class="container-fluid p-0">
     <div id="hero">
-
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-8 hero-text text-center ">
-                    <h1>Find and organise your favourite recipes</h1>
-                    <hr class="hr-white">
-                    <p class="lead">We're here to help.</p><a class="find-out" href="{% url 'library' %}">Start searching recipes!</a>
+                    <h1>Find and organise your favourite recipes with VITTLER</h1>
+                    <hr>
+                    {% if user.is_authenticated %}
 
+                    {% else %}
+                    <a href="{% url 'account_login' %}"><button class="btn btn-info">Sign up</button></a> or 
+                    {% endif %}
+                    <a href="{% url 'library' %}"><button class="btn btn-primary">Start searching our
+                            recipe library!</button></a>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-6">
+
+        </div>
+        <h2>Welcome to Vittler!</h2>
+        Discover a world of flavor at your fingertips. With RecipeShare, you can:
+        <ul>
+            <li>Upload Your Recipes: Share your favorite dishes and inspire others.</li>
+            <li>Explore the Library: Browse a growing collection of recipes from food lovers everywhere.</li>
+            <li>Save Your Favorites: Build your own personal recipe book with just a click.</li>
+        </ul>
+        <p>Simple, collaborative, and delicious—start your culinary journey with RecipeShare today!</p>
+        <div class="col-12 col-lg-6">
+
         </div>
     </div>
 </div>

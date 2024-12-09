@@ -65,7 +65,7 @@
 
 
 
-                            <!-- Modal -->
+                            <!-- Recipe Modal -->
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal fade" id="{{ recipe.slug }}Modal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -79,6 +79,8 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
+
+                                                <!-- Toggled Recipe Content -->
                                                 <div class="container-fluid" id="{{ recipe.id }}-modal-content">
                                                     <div class="row">
                                                         <div class="col-6 col-md-4" id="{{ recipe.id }}-ingredients-modal-id">
@@ -110,6 +112,8 @@
                                                             </div>
                                                         </div> 
                                                         <div class="col-6 col-md-4">
+                                                            <h3>Notes</h3>
+                                                            <hr>
                                                             <ul>
                                                                 <li id="{{ recipe.id }}-serves-modal-id">
                                                                     <strong>Serves:</strong> {{ recipe.serves }}
@@ -134,18 +138,23 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <!-- Recipe Edit Form Toggled Modal Content -->
+
                                                 <div class="container d-none" id="{{ recipe.id }}-modal-edit">
                                                     <form id="{{ recipe.id }}-modal-edit-form" method="post"
                                                         action="{% url 'recipe_edit' recipe.id %}"
                                                         enctype="multipart/form-data">
                                                         {% csrf_token %}
                                                         {{ form|crispy }}
+                                                        <div class="d-flex justify-content-end">
                                                         <button id="submitButton" type="submit"
-                                                            class="btn btn-primary float-right">Save Changes</button>
+                                                            class="btn btn-info">Save Changes</button>
+                                                            </div>
                                                     </form>
                                                 </div>
                                             </div>
-
+                                            <!----- Footer containing buttons ---->
                                             <div class="modal-footer">
                                                 {% if user.is_authenticated %}
                                                 <a data-recipe_id="{{ recipe.id }}"
@@ -182,16 +191,16 @@
         </div>
     </div>
     {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
+    <div class="row my-5">
+    <div class="d-flex justify-content-center" aria-label="Page navigation">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous Page</a></li>
+            <a href="?page={{ page_obj.previous_page_number }}"><button class="btn btn-info">&laquo; Previous Page</button></a>
             {% endif %}
             {% if page_obj.has_next %}
-            <li></button><a href="?page={{ page_obj.next_page_number }}" class="page-link"> Next Page &raquo;</a></li>
+            <a href="?page={{ page_obj.next_page_number }}"><button class="btn btn-info">&raquo; Next Page</button></a>
             {% endif %}
-        </ul>
-    </nav>
+    </div>
+    </div>
     {% endif %}
 
 
