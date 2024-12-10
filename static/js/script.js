@@ -1,3 +1,12 @@
+//Variables
+
+const editButtons = document.getElementsByClassName("btn-edit");
+const deleteButtons = document.getElementsByClassName("btn-delete");
+const preDeleteButtons = document.getElementsByClassName("btn-predelete");
+const cancelButtons = document.getElementsByClassName("btn-cancel");
+
+//Message display timeout
+
 document.addEventListener("DOMContentLoaded", function() {
     const messages = document.getElementById("message-display");
     if (messages) {
@@ -7,14 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-
-
-const submitButton = document.getElementById("submitButton");
-const editButtons = document.getElementsByClassName("btn-edit");
-const titleText = document.getElementById("id_title");
-const deleteButtons = document.getElementsByClassName("btn-delete");
-const preDeleteButtons = document.getElementsByClassName("btn-predelete")
-const cancelButtons = document.getElementsByClassName("btn-cancel")
+//Edit to adapt display of modal and render populated Recipe Edit form
 
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
@@ -41,25 +43,10 @@ for (let button of editButtons) {
         //Set submit action
         recipeForm.setAttribute("action", `edit_recipe/${recipeId}/`);
     });
-};
-
-
-for (let button of deleteButtons) {
-    button.addEventListener("click", (e) => {
-        e.preventDefault(); // Prevent default link action
-        let deleteUrl = e.target.getAttribute("data-url")
-          
-        window.location.href = deleteUrl;
-
-    });
 }
 
-for (let button of cancelButtons) {
-  button.addEventListener("click", (e) => {
-    let libraryUrl = e.target.getAttribute("data-url")
-    window.location.href = libraryUrl;
-  });
-}
+
+//Button to adapt modal display to show delete confirmation
 
 for (let button of preDeleteButtons) {
   button.addEventListener("click", (e) => {
@@ -82,7 +69,29 @@ for (let button of preDeleteButtons) {
 }
 
 
+//Button functionality to delete recipe
+
+for (let button of deleteButtons) {
+    button.addEventListener("click", (e) => {
+        let deleteUrl = e.target.getAttribute("data-url");
+          
+        window.location.href = deleteUrl;
+
+    });
+}
+
+//Button functionality to cancel delete recipe
+
+for (let button of cancelButtons) {
+  button.addEventListener("click", (e) => {
+    let libraryUrl = e.target.getAttribute("data-url");
+    window.location.href = libraryUrl + '?refresh=true';  //Refresh page to remove classes added by predelete
+  });
+}
+
+//Button functionality to clear search parameters
+
 function clearSearch() {
-  let libraryUrl = e.target.getAttribute("data-url")
+  let libraryUrl = ("data-url");
   window.location.href = libraryUrl;
 }

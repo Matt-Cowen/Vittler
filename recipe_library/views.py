@@ -138,10 +138,10 @@ def add_to_my_recipes(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     my_recipes, created = MyRecipes.objects.get_or_create(user=request.user)
     if recipe in my_recipes.recipe.all():
-        messages.info(request, "This recipe is already in your list!")
+        messages.info(request, "This recipe is already in your book!")
     else:
         my_recipes.recipe.add(recipe)
-        messages.success(request, "Recipe added to your list")
+        messages.success(request, "Recipe added to your book")
     return redirect('library')
 
 def remove_from_my_recipes(request, recipe_id):
@@ -166,7 +166,7 @@ def remove_from_my_recipes(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     my_recipes = MyRecipes.objects.get(user=request.user)
     my_recipes.recipe.remove(recipe)
-    messages.success(request, "Recipe removed from your list")
+    messages.success(request, "Recipe removed from your book")
     return redirect('my_recipes')
 
 
