@@ -12,10 +12,10 @@
                     {% if user.is_authenticated %}
 
                     {% else %}
-                    <a href="{% url 'account_login' %}"><button class="btn btn-info">Sign up</button></a> or
+                    <div class="hero-btn-container d-inline-block"><a href="{% url 'account_login' %}" class="btn btn-info">Sign up</a> <strong>or</strong></div>
                     {% endif %}
-                    <a href="{% url 'library' %}"><button class="btn btn-primary">Start searching our
-                            recipe library!</button></a>
+                    <a href="{% url 'library' %}" class="btn btn-primary">Start searching our
+                            recipe library!</a>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
     </div>
 </div>
 <div class="container">
-    <div class="row py-5">
+    <div class="row blurb">
         <div class="col-12 col-lg-6 order-2 order-lg-1 d-flex justify-content-center align-items-center ">
             <div class="brand-blurb">
 

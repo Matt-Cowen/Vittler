@@ -56,9 +56,9 @@
                                 </button>
                                 {% if user.is_authenticated %}
                                 <a data-recipe_id="{{ recipe.id }}"
-                                    href="{% url 'add_to_my_recipes' recipe.id %}"><button class="btn btn-info btn--card">Add to
+                                    href="{% url 'add_to_my_recipes' recipe.id %}" class="btn btn-info btn--card">Add to
                                         My
-                                        Recipes</button></a>
+                                        Recipes</a>
                                 {% endif %}
 
                             </div>
@@ -158,9 +158,9 @@
                                             <div class="modal-footer">
                                                 {% if user.is_authenticated %}
                                                 <a data-recipe_id="{{ recipe.id }}"
-                                                href="{% url 'add_to_my_recipes' recipe.id %}"><button id="{{ recipe.id }}-add-button" class="btn btn-info">Add to
+                                                href="{% url 'add_to_my_recipes' recipe.id %}" id="{{ recipe.id }}-add-button" class="btn btn-info">Add to
                                                     My
-                                                    Recipes</button></a>
+                                                    Recipes</a>
                                                     {% endif %}
                                                 {% if user.is_authenticated and recipe.creator == user %}
                                                 <button class="btn btn-edit"
@@ -194,10 +194,10 @@
     <div class="row my-5">
     <div class="d-flex justify-content-center" aria-label="Page navigation">
             {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}"><button class="btn btn-info">&laquo; Previous Page</button></a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-info">&laquo; Previous Page</a>
             {% endif %}
             {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}"><button class="btn btn-info">&raquo; Next Page</button></a>
+            <a href="?page={{ page_obj.next_page_number }}" class="btn btn-info">&raquo; Next Page</a>
             {% endif %}
     </div>
     </div>

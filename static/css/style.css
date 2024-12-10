@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* *--------------------------------------------General------**/
 
@@ -164,7 +164,15 @@ footer {
 }
 
 .hero-text > h1 {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
+}
+
+.hero-btn-container {
+    margin-bottom: 5px;
+}
+
+.blurb {
+    margin-bottom: 5rem;
 }
 
 .brand-image {
@@ -216,7 +224,7 @@ footer {
     background-color: #fbfdf6;
     border: 2px solid #424242;
     border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.205);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -246,6 +254,17 @@ footer {
 }
 
 
+/*--------------------------------------------Extra responsive design------*/
+
+
+@media screen and (min-width:992px) {
+
+    .blurb {
+        margin: 5rem 0;
+    }
+    
+}
+
 
 
 @media screen and (min-width:1200px) {
@@ -256,5 +275,5 @@ footer {
         font-size: 2rem;
     }
 
-
 }
+
