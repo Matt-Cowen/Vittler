@@ -12,6 +12,8 @@
             <div class="row">
                 {% for recipe in my_recipes_list %}
                 <div class="col-6 col-lg-3">
+
+                    <!--Individual instance of recipe card-->
                     <div class="card mb-4 recipe-card">
                         <div class="card-body">
                             <div class="image-container">
@@ -39,6 +41,7 @@
 
                             <p class="card-text text-muted h6">Created by: {{ recipe.creator }}</p>
                             </p>
+
                             <!-- Button trigger modal -->
                             <div class="button-container">
                             <button type="button" class="btn btn-primary btn--card" data-bs-toggle="modal"
@@ -108,9 +111,11 @@
                                                                     <strong>Prep time:</strong> {{ recipe.prep_time }}
                                                                     minutes
                                                                 </li>
+                                                                {% if recipe.dietary_choices %}
                                                                 <li id="{{ recipe.id }}-choices-modal-id">
                                                                     {{ recipe.dietary_choices }}
                                                                 </li>
+                                                                {% endif %}
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -124,15 +129,13 @@
                                                 </div>
                                             </div>
 
+                                            <!--Modal footer with buttons-->
+
                                             <div class="modal-footer">
                                                 <a data-recipe_id="{{ recipe.id }}"
                                                 href="{% url 'remove_from_my_recipes' recipe.id %}" id="{{ recipe.id }}-remove-button" class="btn btn-info btn--card">
                                                     Remove from
                                                     List</a>
-                                                {% if user.is_authenticated and recipe.creator == user %}
-                                                <button class="btn btn-delete" data-recipe_id="{{ recipe.id }}"
-                                                    data-url="{% url 'recipe_delete' recipe.id %}">Delete</button>
-                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>
@@ -154,6 +157,8 @@
             </div>
         </div>
     </div>
+
+    <!--Pagination Logic-->
     {% if is_paginated %}
     <div class="row my-5">
     <div class="d-flex justify-content-center" aria-label="Page navigation">
@@ -173,7 +178,4 @@
 </div>
 
 
-
-
-<!-- index.html content ends here -->
 {% endblock %}
