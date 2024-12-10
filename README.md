@@ -1,7 +1,7 @@
 # VITTLER Recipe Book by Matt Cowen
 
 
-![Vittler Responsive Image](/static/images/readme/screenshots/amiresponsivetest.png)
+![Vittler Responsive Image](/static/images/readme/amiresponsivetest.png)
 
 This is a full-stack framework project built using Django, Python, HTML and CSS. My goal is to create a functioning and responsive website for recipe sharing. This project has been built for educational purposes.
 
