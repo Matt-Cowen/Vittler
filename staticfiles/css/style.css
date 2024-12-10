@@ -1,18 +1,279 @@
-h1 {
-    color: navy;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* *--------------------------------------------General------**/
+
+body {
+    background-color: #fafae9;
+    font-family: 'Quicksand', sans-serif;
 }
 
-.find-out {
-    color: darkgreen;
+
+.page-separator {
+    background-color: #87a878;
+    color: #fafae9; 
 }
 
+
+
+/**--------------------------------------------Modifiers------**/
+
+.opaque-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(250, 250, 233, 0.192);
+    z-index: 1;
+}
+
+.message-display {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+  }
+
+
+
+/**--------------------------------------------Buttons------**/
+
+
+
+
+.btn-primary,
+.btn-edit {
+    color:#fafae9;
+    background-color: #be6e46;
+    border: none
+}
+
+.btn-primary:hover,
+.btn-edit:hover {
+    color: #fafae9;
+    background-color: #945333;
+}
+
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-edit:focus,
+.btn-edit.focus {
+  color: #fafae9;
+  background-color: #945333;
+  border: none;
+  box-shadow: none;
+}
+
+
+.btn-info {
+    color:#fafae9;
+    background-color: #87a878;
+    border: none
+}
+
+.btn-info:hover{
+    color: #fafae9;
+    background-color: #4f6445;
+}
+
+.btn-info:focus,
+.btn-info.focus {
+  color: #fafae9;
+  background-color: #4f6445;
+  border: none;
+  box-shadow: none;
+}
+
+.btn--search {
+    max-height: 2.5rem;
+    margin: 0 3px;
+}
+
+
+/**--------------------------------------------Navbar------**/
+
+.navbar{
+    border-bottom: 2px solid #424242;
+}
+
+.navbar-nav {
+    margin-left: 10px;
+}
+
+.navbar-brand{
+    background-image: url(../images/default.jpg);
+    background-size: contain;
+    height: 3.5rem;
+    width: 3.5rem;
+    margin-left: 15px;
+    border-radius: 50%;
+    border: 3px solid #be6e46; 
+}
+
+.navbar-toggler {
+    margin-right: 20px;
+    
+}
+
+.navbar-user {
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+
+/*--------------------------------------------Footer------*/
+
+footer {
+    border: none;
+    background-color: #be6e46 !important;
+    color: #fafae9;
+}
+
+.footer-links {
+    list-style-type: none;
+    display: flex;
+    margin-bottom: 0 !important;
+}
+
+.footer-links > li {
+    font-size: 1.2rem;
+    margin: 0 10px;
+}
+
+.social-link {
+ 
+    text-decoration: none;
+    color: #fafae9;
+}
+
+
+/**--------------------------------------------Homepage------**/
 
 #hero {
     height: 85vh;
     width: 100%;
     padding-top: 32px;
-    background: url(../images/katie-smith-uQs1802D0CQ-unsplash.jpg) no-repeat center center/cover;
+    background: url(../images/360floralflaves-EKyAkrZGpJc-unsplash-2.jpg) no-repeat center center/cover;
     position: relative;
     margin-bottom: 0px;
     border-radius: 0;
 }
+
+.hero-text {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text > h1 {
+    font-family: "Montserrat", sans-serif;
+}
+
+.hero-btn-container {
+    margin-bottom: 5px;
+}
+
+.blurb {
+    margin-bottom: 5rem;
+}
+
+.brand-image {
+    padding: 50px;
+    border-radius: 50%;
+}
+
+.brand-blurb {
+    margin: auto;
+    font-size: 1.2rem;
+
+}
+
+.brand-blurb > ul {
+    list-style-type: none;
+}
+
+.fa-ul > li {
+    margin-bottom: 5px; 
+}
+/*--------------------------------------------Recipe Cards------*/
+
+.recipe-card {
+    background-color: #fbfdf6;
+    border: 2px solid #424242;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.205);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.btn--card {
+    font-size: 14px;
+    border-radius: 5px;
+    margin: 5px;
+    white-space: nowrap;
+    max-width: 100%; 
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*--------------------------------------------Recipe Modal------*/
+
+.modal-content{
+    background-color: #fbfdf6;
+    border: 2px solid #424242;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/*--------------------------------------------Submit Form------*/
+
+.form-container{
+    border: 3px solid #424242;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+
+/*--------------------------------------------Auth pages------*/
+
+
+.account-page-half {
+    position: relative;
+}
+
+.account-page-image{
+    height: 83vh;
+    width: 100%;
+    background: url(../images/katie-smith-uQs1802D0CQ-unsplash.jpg) no-repeat center center/cover;
+    border-left: 2px solid #424242;
+    margin-bottom: 0px;
+    border-radius: 0;
+}
+
+
+/*--------------------------------------------Extra responsive design------*/
+
+
+@media screen and (min-width:992px) {
+
+    .blurb {
+        margin: 5rem 0;
+    }
+    
+}
+
+
+
+@media screen and (min-width:1200px) {
+
+    
+    .footer-links > li {
+        margin: 0 20px;
+        font-size: 2rem;
+    }
+
+}
+
