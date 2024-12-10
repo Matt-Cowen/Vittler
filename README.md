@@ -1,131 +1,369 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# VITTLER Recipe Book by Matt Cowen
 
-Welcome Matthew Cowen,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![devon decks & dice responsive screenshot](/static/images/screenshots/am_i_responsive.png)
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+This is a full-stack framework project built using Django, Python, HTML and CSS. My goal is to create a functioning and responsive website for recipe sharing. This project has been built for educational purposes.
 
-## Gitpod Reminders
+**[Visit my website](https://vittler-2d3fb1b45f48.herokuapp.com/)**  
+  
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# Overview
 
-`python3 -m http.server`
+Eating is easy. Decisions are hard. Vittler aims to provide a provide an all-inclusive service to help you choose what to cook, how to cook it, and organise
+your recipes in an easily editable personal recipe book. Whether you're a stay at home parent or a bodybuilder (or both!), Vittler allows you to search for and collect recipes
+to suit your tastes!
 
-A blue button should appear to click: _Make Public_,
+# Table of Contents
 
-Another blue button should appear to click: _Open Browser_.
+1. [UX](#ux)
+    - [User Stories](#user-stories)
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+2. [Scope](#scope)
+    - [Site Features](#site-features)
+    - [Future Features](#future-features)
 
-A blue button should appear to click: _Make Public_,
+3. [Wireframes](#wireframes)
 
-Another blue button should appear to click: _Open Browser_.
+4. [Database schema](#database-schema)
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+5. [Structure](#structure)
+    - [Models](#models)
 
-To log into the Heroku toolbelt CLI:
+6. [Surface](#surface)
+    - [Colour Scheme](#colour-scheme)
+    - [Fonts](#fonts)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+7. [Technologies Used](#technologies-used)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+8. [Testing](#testing)
 
-### Connecting your Mongo database
+9. [Deployment](#deployment)
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+10. [Credits](#credits)
 
-------
 
-## Release History
+# UX
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+The UX was developed with the target user in mind. The target is a wide net, and as such the UX had to be accessible and
+attractive to a wide range of user.
 
-**June 18, 2024,** Add Mongo back into template
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+The users will be looking for:
 
-**May 28 2024:** Fix Mongo and Links installs
+- An easy to navigate site, with clear signposting for browsing, uploading and saving recipes
+- The ability to sign up to add and save recipes.
+- The ability to collect recipes that they like into their own dedicated recipe book.
+- the ability to edit and recipes that they have submitted.
 
-**April 26 2024:** Update node version to 16
 
-**September 20 2023:** Update Python version to 3.9.17.
+The site admin will be looking for:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- an easy and intuitive way of managing content and users on the site.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## User Stories
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+**Epic: Admin**
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- As a Site Admin, I will be able to manage all aspects of submitted recipes.
+- As a Site Admin, I can approve or disapprove recipes so that I can filter out repeat/incomprehensible recipes.
+- As a site admin, I can manage users.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+**Epic: User Interaction**
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- As a Site User, I can browse all available recipes.
+- As a Site User I can view the contents of the recipes in a pop-out modal.
+- As a Site User I can modify or delete my recipe if I have made a mistake or angered my grandmother.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+**Epic: Navigation**
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- As a Site User, I can view a paginated list of recipes so that I can select which view in greater detail.
+- As a Site User, I can search the full list of available recipes so I can locate specific recipes.
+- As a Site User, I will see a home page so I will know what the site offers.
+- As a Site User, I can easily navigate to login, register, library and recipe book pages.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+**Epic: Login/Register**
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- As a Site User, I can register an account so that I can submit recipes to the library, and store select recipes in my Recipe Book.
+- As a Site User, I can log in/out off my account if I wish so that I can connect or disconnect from the website.
 
-------
 
-## FAQ about the uptime script
+IMAGES*********************************************
+*Project kanban board*
 
-**Why have you added this script?**
+#
+# Scope
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## **Site Features**
 
-**How will this affect me?**
+1. **Navigation Bar**
+- The navigation bar appears on every page so users can easily navigate through the site. It adds an active class to the current url for better UX.
+- Navigation bar has links for "Home", "Recipe Library", "Register" and "Login" when there is no logged in user.
+-  Navigation bar has links for "Home", "Recipe Library", "My Recipe Boook", "Add Recipe" and "Logout" when a user is logged in.
+- If the user is logged in then their username will appear on the right hand side of the nav bar.
+- The navbar is fully responsive, collapsing into a hamburger menu for medium and small screen size.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+IMAGES*********************************************
 
 ---
 
-Happy coding!
+2. **Footer**
+The footer, present on all pages, comprises of copyright information on the left hand side, and social links on the right.
+
+IMAGES*********************************************
+
+---
+
+3. **Landing Page**
+The landing page offers a simple hero section with a call to action to either start viewing recipes (available to both logged in and non-registered users) or to sign up (only displays if user is not logged in).
+
+IMAGES*********************************************
+
+---
+
+4. **Recipe Library Page**
+The recipe library page offers a paginated view of all recipes within the recipe library, presented in card format, popping out to full detail in a modal. If the user is logged in, they are offered the ability to add recipes to their Recipe Book. If they are logged in and the recipe is one they have submitted to the site, they have the option of editing or deleting the recipe within the full info view. The edit functionality allows them to edit the recipe right there in the modal.
+
+IMAGES*********************************************
+
+---
+
+5. **My Recipe Book Page**
+The My Recipe Book page offers a paginated view of all of the recipes that the logged in user has added to their recipe book from the recipe library. It gives them the option of viewing the recipe details in a pop out modal, and to remove the recipe from their recipe book. This view was modelled directly on the recipe library page.
+
+IMAGES*********************************************
+
+---
+
+6. **Add Recipe Page**
+The Add Recipe page provides a simple form for users to submit their own personal recipes to be displayed in the recipe library.
+
+IMAGES*********************************************
+
+---
+
+7. **Register Page**
+- The register page allows users to create a new account by providing necessary information such as username, email, password. It is generated by allauth and styled using crispy forms. There is some custom text welcoming the user back to the site.
+
+![sign up page](/docs/images/screenshots/signup.png)
+
+---
+
+8. **Login Page**
+- The Login page allows users to log in. It is also generated by allauth and styled using crispy forms.
+
+![sign in page](/docs/images/screenshots/signin.png)
+
+---
+
+9. **Logout Page**
+- The Login page asks users to confirm they wish to log out. It is also generated by allauth and styled using crispy forms.
+
+![sign out page](/docs/images/screenshots/signout.png)
+
+
+## **Future Features**
+
+The original scope was to include meal planning functionality to the site, but I decided this was far above and beyond the necessary requirements for this project.
+
+
+# **Wireframes**
+
+All wireframes were created using [Balsamiq](https://balsamiq.com/).
+
+---
+
+IMAGES*********************************************
+*The landing page*
+
+---
+
+IMAGES*********************************************
+*The recipe library page*
+
+
+---
+
+IMAGES*********************************************
+*The sign up page*
+
+---
+
+IMAGES*********************************************
+*The log in page*
+
+---
+
+
+# **Database Schema**
+
+Before I set to migrating any models to my database, I created an entity relationship diagram to help me see how the models would link together. As Meal Planning ended up as a future feature, the models to provide this functionality did not get used.
+
+The entity relationship diagrams were created using [dbdiagram.io](https://dbdiagram.io/).
+
+IMAGES*********************************************
+
+
+## **Models**
+
+### **Recipe Model**
+
+![the event model](/docs/images/screenshots/event_model.png)
+
+---
+
+### **MyRecipes Model (displayed in ERD as recipe_book)**
+
+![the comment model](/docs/images/screenshots/comment_model.png)
+
+
+# **Surface**
+
+## **Design**
+
+I wanted the website to have a clean and functional design, with clear calls to action.
+
+## **Colour Scheme**
+
+The colour scheme was developed as the site evolved, and came to complement the generated logo for Vittler. It aims to convey natural ingredients, and the simplicity of a home-made recipe book.
+
+
+## **Fonts** 
+
+I opted for two free license font from Google fonts:
+
+- [Gagalin](https://fonts.google.com/specimen/Montserrat) -Clear and direct, used for Hero Text
+- [Aleo](https://fonts.google.com/specimen/Quicksand) - A little more informal font, to add to the feeling of a personal recipe book. Used for the rest of the site.
+
+
+# **Technologies Used**
+
+## **Languages**
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [JavaScript](https://www.javascript.com/)
+- [Python](https://www.python.org/)
+
+## **Frameworks, Libraries and Programs**
+
+- [GitHub](https://github.com/) - GitHub is a web-based platform for version control using Git, enabling collaborative software development and hosting of code repositories. GitHub connects to GitPod and Heroku.
+
+- [GitPod](https://gitpod.io/workspaces) - Connected to GitHub, GitPod hosted the coding space, allowing the project to be built and then committed to the GitHub repository.
+
+- [Heroku](https://www.heroku.com/) - Connected to the GitHub repository, Heroku is a cloud application platform used to deploy this project so the backend language can be utilized/tested.
+
+- [Django](https://www.djangoproject.com/) - Django is a high-level web framework for building web applications rapidly with a clean and pragmatic design.
+
+- [ElephantSQL](https://api.elephantsql.com) - ElephantSQL is a hosted PostgreSQL database service that can be seamlessly integrated with Django applications, providing scalable and reliable database solutions.
+
+- [Gunicorn](https://gunicorn.org/) - Gunicorn is a pure-Python HTTP server for WSGI applications.
+
+- [Dj Database URL](https://pypi.org/project/dj-database-url/) - This allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
+
+- [Bootstrap](https://getbootstrap.com/) - Bootstrap is a front-end framework for developing responsive and mobile-first websites quickly and efficiently.
+
+- [Cloudinary](https://cloudinary.com) - Cloudinary is a cloud-based media management platform that offers solutions for storing, optimizing, and delivering images and videos for web and mobile applications.
+
+- [Summernote](https://summernote.org/) - Summernote is a Django app that enables users to easily integrate a rich text editor into their web applications, enhancing event creation and description functionality.
+
+- [Django-allauth](https://www.intenct.nl/projects/django-allall/) - A comprehensive authentication app for Django, supporting social authentication, registration, and account management.
+
+- [Django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Django Crispy Forms is a Django app that provides a better way to generate forms in your Django application.
+
+- [Whitenoise](http://whitenoise.evans.io/en/stable/) - WhiteNoise allows your web app to serve its own static files, making it simpler to deploy on services like Heroku.
+
+- [Font Awesome](https://fontawesome.com/) - Font Awesome is a library of scalable vector icons that can be easily customized and used to enhance the visual appeal of websites and applications.
+
+- [Balsamiq](https://balsamiq.com/) - Balsamiq is a wireframing tool used for creating low-fidelity mockups of user interfaces, allowing for quick and easy visualization of design ideas.
+
+- [Am I Responsive](http://ami.responsivedesign.is/) - Am I Responsive is a web tool that allows users to quickly preview how their website appears on various devices and screen sizes, helping to ensure responsiveness and compatibility across platforms.
+
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - The W3C CSS Validator is a tool used to check the validity and syntax of CSS code, ensuring compliance with web standards set by the World Wide Web Consortium (W3C).
+
+- [W3C Markup Validator](https://validator.w3.org/#validate_by_input) - The W3C Markup Validator is a tool used to check the validity and syntax of HTML code, ensuring compliance with web standards set by the World Wide Web Consortium (W3C).
+
+- [JSHint](https://jshint.com/) - JSHint is a static code analysis tool used for checking JavaScript code for errors, potential problems, and stylistic inconsistencies.
+
+- [Pep8ci](https://pep8ci.herokuapp.com/) - Pep8ci provides Python developers with a tool to check their code against the PEP 8 style guide for adherence to coding standards.
+
+
+---
+
+The full list of requirements for the project along with versions can be seen below.
+  
+asgiref==3.8.1
+cloudinary==1.36.0
+crispy-bootstrap5==0.7
+dj-database-url==0.5.0
+dj3-cloudinary-storage==0.0.6
+Django==4.2.7
+django-allauth==0.57.0
+django-bootstrap-v5==1.0.11
+django-crispy-forms==2.1
+django-multiselectfield==0.1.13
+django-summernote==0.8.20.0
+gunicorn==20.1.0
+oauthlib==3.2.2
+psycopg2==2.9.6
+PyJWT==2.8.0
+python3-openid==3.2.0
+requests-oauthlib==1.3.1
+sqlparse==0.5.2
+urllib3==1.26.20
+whitenoise==5.3.0
+
+# **Testing**
+
+
+
+
+# **Deployment**
+
+The site was deployed on Heroku and connected to GitHub for version control. This was done by following the below steps:
+
+- Log in to GitHub and create a new repository, using the [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template).
+- Sign up for Heroku and create a new account.
+- Create a new app and choose a suitable region for deployment.
+- In the app settings, go to config vars and click "reveal config vars".
+- The app requires configuration for the following variables: SECRET_KEY, DATABASE_URL, CLOUDINARY_URL. Assign the corresponding values from your project's env.py to these variables.
+- Integrate Heroku with your GitHub by choosing the GitHub integration option in Heroku.
+- Locate and select the GitHub repository you created earlier from the CI template.
+- Choose manual deployment from the selected branch of your GitHub repository.
+- Deploy by clicking the manual deploy button.
+- Once deployed, the site is accessible through the live link provided at the top of the document.
+
+# **Credits**
+
+## **Tech Support**
+
+- [W3Schools](https://www.w3schools.com/) - Used to help understanding with certain features.
+
+- [Stack Overflow](https://stackoverflow.com/) - Used to inspire me when trying to picture how to implement certain features.
+
+- [Slack](https://app.slack.com/) - Used to collaborate with my course buddies and learn from colleagues who have encountered similar issues.
+
+- [ChatGPT](https://openai.com/gpt) - Used to generate all the example text on the site, also used to point me in the right direction from time to time. 
+
+- [Code Institute](https://codeinstitute.net/) - I think therefore I blog walkthrough project inspired the events page on my site. I have also learned everything I needed to build this site whilst undertaking the 16 week Full Stack skills bootcamp over the last 4 months.
+
+---
+
+
+## **Media**
+
+- [GoogleFonts](https://fonts.google.com/)
+
+- [ChatGPT](https://chatgpt.com/) - ChatGPT was used to generate the logo artwork, and the albanian sausage cake artwork, along with plain english explanations for issues in the code.
+
+- [Unsplash](https://unsplash.com/) - Unsplash was used to access free license imagery to add to the recipes.
+
+---
+
+### **Acknowledgements**
+
+-Thank you to all my fellow Bootcamp students, our facilitator, the SME tutors and the coding coach staff for the support provided in the creation of this project.
