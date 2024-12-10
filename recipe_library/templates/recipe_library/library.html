@@ -156,6 +156,14 @@
                                                             </div>
                                                     </form>
                                                 </div>
+                                                <div class="conatiner d-none" id="{{ recipe.id }}-modal-delete">
+                                                    <p>Are you sure you want to delete this recipe?</p>
+                                                    <div class="d-flex justify-content-end gap-2">
+                                                    <button class="btn btn-dark btn-delete" data-recipe_id="{{ recipe.id }}"
+                                                    data-url="{% url 'recipe_delete' recipe.id %}">Delete</button>
+                                                    <button class="btn btn-primary btn-cancel" data-url="{% url 'library' %}">Cancel</button>
+                                                </div>
+                                                </div>
                                             </div>
 
                                             <!----- Footer containing buttons ---->
@@ -169,7 +177,7 @@
                                                 {% if user.is_authenticated and recipe.creator == user %}
                                                 <button class="btn btn-edit"
                                                 data-recipe_id="{{ recipe.id }}" id="{{ recipe.id }}-edit-button">Edit</button>
-                                                <button class="btn btn-dark btn-delete" data-recipe_id="{{ recipe.id }}"
+                                                <button class="btn btn-dark btn-predelete" id="{{ recipe.id }}-predelete-button" data-recipe_id="{{ recipe.id }}"
                                                     data-url="{% url 'recipe_delete' recipe.id %}">Delete</button>
 
                                                 {% endif %}
