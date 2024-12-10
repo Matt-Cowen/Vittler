@@ -92,7 +92,7 @@ The site admin will be looking for:
 - As a Site User, I can log in/out off my account if I wish so that I can connect or disconnect from the website.
 
 
-IMAGES*********************************************
+![Kanban Board](/static/images/readme/kanban.png)
 *Project kanban board*
 
 #
@@ -178,14 +178,16 @@ All wireframes were created using [Balsamiq](https://balsamiq.com/).
 
 ---
 
-![Landing Page Wirefram](/static/images/readme/balsamiqhomepageloggedin.png)
+![Landing Page Wireframe](/static/images/readme/balsamiqhomepageloggedin.png)
 *The landing page*
 
 ---
 
-IMAGES*********************************************
+![Library Page Wireframe](/static/images/readmerecipebookwireframe.png)
 *The recipe library page*
 
+![Library Page Wireframe With Modal](/static/images/readmerecipebookwireframepopup.png)
+*The recipe library page with modal*
 
 ---
 
@@ -206,20 +208,20 @@ Before I set to migrating any models to my database, I created an entity relatio
 
 The entity relationship diagrams were created using [dbdiagram.io](https://dbdiagram.io/).
 
-IMAGES*********************************************
+![ERD Diagram](/static/images/readme/dbdiagram.png)
 
 
 ## **Models**
 
 ### **Recipe Model**
 
-![the event model](/docs/images/screenshots/event_model.png)
+![Recipe Model](/static/images/readme/recipemodel.png)
 
 ---
 
 ### **MyRecipes Model (displayed in ERD as recipe_book)**
 
-![the comment model](/docs/images/screenshots/comment_model.png)
+![MyRecipes Model](/static/images/readme/myrecipemodel.png)
 
 
 # **Surface**
@@ -237,8 +239,8 @@ The colour scheme was developed as the site evolved, and came to complement the 
 
 I opted for two free license font from Google fonts:
 
-- [Gagalin](https://fonts.google.com/specimen/Montserrat) -Clear and direct, used for Hero Text
-- [Aleo](https://fonts.google.com/specimen/Quicksand) - A little more informal font, to add to the feeling of a personal recipe book. Used for the rest of the site.
+- [Montserrat](https://fonts.google.com/specimen/Montserrat) -Clear and direct, used for Hero Text
+- [Quicksand](https://fonts.google.com/specimen/Quicksand) - A little more informal font, to add to the feeling of a personal recipe book. Used for the rest of the site.
 
 
 # **Technologies Used**
@@ -319,6 +321,17 @@ whitenoise==5.3.0
 
 # **Testing**
 
+##Code Validation
+
+###HTML
+
+
+###CSS
+![CSS Validation](/static/images/readme/csstest1.png)
+
+###JS
+
+![JS Validation](/static/images/readme/JSHinttest.png)
 
 
 
