@@ -186,7 +186,7 @@ All wireframes were created using [Balsamiq](https://balsamiq.com/).
 ![Library Page Wireframe](/static/images/readme/recipebookwireframe.png)
 *The recipe library page*
 
-![Library Page Wireframe With Modal](/static/images/readme/recipebookwireframepopup.png)
+![Library Page Wireframe With Modal](/static/images/readme/Recipebookwireframepopup.png)
 *The recipe library page with modal*
 
 ---
