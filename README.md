@@ -159,7 +159,7 @@ The Add Recipe page provides a simple form for users to submit their own persona
 
 ## **Future Features**
 
-The original scope was to include meal planning functionality to the site, but I decided this was far above and beyond the necessary requirements for this project.
+The original scope was to include bot meal planning and comment/rating functionality to the site, but I decided this was far above and beyond the necessary requirements for this project.
 
 
 # **Wireframes**
