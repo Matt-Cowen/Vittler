@@ -40,7 +40,7 @@ class RecipeViewsTestCase(TestCase):
             creator=self.user,
             status=1,
         )
-        self.client = Client()
+        
 
 
     def test_recipe_list_view(self):
@@ -100,8 +100,7 @@ class RecipeFormTestCase(TestCase):
             "ingredients": "Salt, Pepper",
             "prep_time": 15,
             "serves": 4,
-            "method": "Mix and cook",
-            "dietary_choices": "Vegan",
+            "method": "Mix and cook"
         }
         form = RecipeForm(data=form_data)
         self.assertFalse(form.is_valid())
