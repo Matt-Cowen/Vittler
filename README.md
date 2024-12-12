@@ -71,19 +71,15 @@ The site admin will be looking for:
 
 
 
-- As a Site User, I can browse all available recipes.
+- As a Site User I can browse all available recipes.
 - As a Site User I can view the contents of the recipes in a pop-out modal.
 - As a Site User I can modify or delete my recipe if I have made a mistake or angered my grandmother.
-- As a Site User, I can view a paginated list of recipes so that I can select which view in greater detail.
-- As a Site User, I can search the full list of available recipes so I can locate specific recipes.
-- As a Site User, I will see a home page so I will know what the site offers.
-- As a Site User, I can easily navigate to login, register, library and recipe book pages.
-
-
-**Epic: Login/Register**
-
-- As a Site User, I can register an account so that I can submit recipes to the library, and store select recipes in my Recipe Book.
-- As a Site User, I can log in/out off my account if I wish so that I can connect or disconnect from the website.
+- As a Site User I can view a paginated list of recipes so that I can select which view in greater detail.
+- As a Site User I can search the full list of available recipes so I can locate specific recipes.
+- As a Site User I will see a home page so I will know what the site offers.
+- As a Site User I can easily navigate to login, register, library and recipe book pages.
+- As a Site User I can register an account so that I can submit recipes to the library, and store select recipes in my Recipe Book.
+- As a Site User I can log in/out off my account if I wish so that I can connect or disconnect from the website.
 
 
 ![Kanban Board](/static/images/readme/kanban.png)
