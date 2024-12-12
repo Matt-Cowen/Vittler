@@ -272,17 +272,21 @@ I wrote a suite of tests to test a select few aspects of my python code:
 
 ### **Forms**
 ![Form Test](/static/images/readme/unittestform.png)
+
 *These tests confirm that with the correct data a form can be submitted, and without required data, cannot.*
 
 ### Views
 ![Views Test pt1](/static/images/readme/unittestviews1.png)
+
 *This displays the test objects to be used for these tests*
 
 ![Views Test pt2](/static/images/readme/unittestviews2.png)
+
 *This displays tests to confirm that the recipe_list view works correctly, the search returns the correct data and that recipes can be added and removed from my_recipes*
 
 ### Tests passed:
 ![Unit Tests Pass](/static/images/readme/unittestspass.png)
+
 *All tests passed!*
 
 
