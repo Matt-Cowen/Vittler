@@ -367,7 +367,7 @@ The full list of requirements for the project along with versions can be seen be
 
 - [Stack Overflow](https://stackoverflow.com/) - Used to detrmine whether other people have already figured out issues I was running into!
 
-- [ChatGPT](https://openai.com/gpt) - Used for example text on the site and plain English explanations of particularly tricky bits of code. 
+- [ChatGPT](https://openai.com/gpt) - Used for example text on the site and plain English explanations of particularly tricky bits of code. Also used to determine structure of two unit tests. 
 
 - [Code Institute](https://codeinstitute.net/) - Taught me all I know!
 
