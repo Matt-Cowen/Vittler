@@ -243,7 +243,7 @@ I opted for two free license font from Google fonts:
 *The HTML for the landing page, the submit recipe page, and all authentification pages passed validation with no errors.*
 
 ![HTML Validation Bug](/static/images/readme/htmlvalidationbug.png)
-*The HTML for the Recipe Library and My Recipe Book pages threw up a lot of errors (one for each recipe), as the automatic formatting of crispy forms gives an ID to each of the fields in the form. As this form is iterated over within a tuple for each of the recipes, this means that there are duplicated IDs for each of these fields. As none of the rest of the code references these IDs for functionality, this has been registered as a known bug.*
+*The HTML for the Recipe Library and My Recipe Book pages threw up a lot of errors (several for each recipe), as the automatic formatting of crispy forms gives an ID to each of the fields in the form. As this form is iterated over within a tuple for each of the recipes, this means that there are duplicated IDs for each of these fields. As none of the rest of the code references these IDs for functionality, this has been registered as a known bug.*
 
 ### **CSS**
 ![CSS Validation](/static/images/readme/csstest1.png)
