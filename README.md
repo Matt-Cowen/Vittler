@@ -369,7 +369,7 @@ The full list of requirements for the project along with versions can be seen be
 
 - [ChatGPT](https://openai.com/gpt) - Used for example text on the site and plain English explanations of particularly tricky bits of code. Also used to determine structure of two unit tests. 
 
-- [Code Institute](https://codeinstitute.net/) - Taught me all I know!
+- [Code Institute](https://codeinstitute.net/) - Taught me all I know, and provided the initial framework for the Recipe model, taken from the I think therefore I blog walkthrough project.
 
 ---
 
