@@ -64,22 +64,16 @@ The site admin will be looking for:
 
 ## User Stories
 
-**Epic: Admin**
 
 - As a Site Admin, I will be able to manage all aspects of submitted recipes.
 - As a Site Admin, I can approve or disapprove recipes so that I can filter out repeat/incomprehensible recipes.
 - As a site admin, I can manage users.
 
 
-**Epic: User Interaction**
 
 - As a Site User, I can browse all available recipes.
 - As a Site User I can view the contents of the recipes in a pop-out modal.
 - As a Site User I can modify or delete my recipe if I have made a mistake or angered my grandmother.
-
-
-**Epic: Navigation**
-
 - As a Site User, I can view a paginated list of recipes so that I can select which view in greater detail.
 - As a Site User, I can search the full list of available recipes so I can locate specific recipes.
 - As a Site User, I will see a home page so I will know what the site offers.
@@ -249,18 +243,19 @@ I opted for two free license font from Google fonts:
 
 ### **HTML**
 
+![HTML Validation](/static/images/readme/htmlvalidatepass.png)
+*The HTML for the landing page, the submit recipe page, and all authentification pages passed validation with no errors.*
 
-
-![HTML Validation](/static/images/readme/htmlvalidationbug.png)
-The HTML for the library page threw up a lot of errors (one for each recipe), as the automatic formatting of crispy forms gives an ID to each of the fields in the form. As this form is iterated over for each of the recipes, thisa means that there are duplicated IDs for each of these fields. As none of the rest of the code references these IDs for functionality, this has been registered as a known bug.
+![HTML Validation Bug](/static/images/readme/htmlvalidationbug.png)
+*The HTML for the Recipe Library and My Recipe Book pages threw up a lot of errors (one for each recipe), as the automatic formatting of crispy forms gives an ID to each of the fields in the form. As this form is iterated over within a tuple for each of the recipes, this means that there are duplicated IDs for each of these fields. As none of the rest of the code references these IDs for functionality, this has been registered as a known bug.*
 
 ### **CSS**
 ![CSS Validation](/static/images/readme/csstest1.png)
-The CSS passed a vildation service with no errors.
+*The CSS passed a vildation service with no errors.*
 
 ### **JS**
 ![JS Validation](/static/images/readme/JSHinttest.png)
-The JavaScript passed through a linter with no errors.
+*The JavaScript passed through a linter with no errors.*
 
 ## **Manual Testing**
 
