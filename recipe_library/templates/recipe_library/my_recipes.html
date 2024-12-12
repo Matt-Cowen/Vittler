@@ -46,12 +46,12 @@
                             <div class="button-container">
                             <button type="button" class="btn btn-primary btn--card" data-bs-toggle="modal"
                                 data-bs-target="#{{ recipe.slug }}Modal">
-                                View full recipe
+                                View <span class="d-none d-sm-inline-block">full</span> recipe
                             </button>
                             <a data-recipe_id="{{ recipe.id }}"
                                                 href="{% url 'remove_from_my_recipes' recipe.id %}" id="{{ recipe.id }}-remove-button" class="btn btn-info btn--card">
-                                                    Remove from
-                                                    List</a>
+                                                    Remove <span class="d-none d-sm-inline-block">from
+                                                        Book</span></a>
                                                 </div>
 
 
@@ -127,6 +127,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
                                             </div>
 
                                             <!--Modal footer with buttons-->
@@ -134,8 +135,8 @@
                                             <div class="modal-footer">
                                                 <a data-recipe_id="{{ recipe.id }}"
                                                 href="{% url 'remove_from_my_recipes' recipe.id %}" id="{{ recipe.id }}-remove-button" class="btn btn-info btn--card">
-                                                    Remove from
-                                                    List</a>
+                                                    Remove <span class="d-none d-sm-inline-block">from
+                                                    Book</span></a>
                                             </div>
                                         </div>
                                     </div>
